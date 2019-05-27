@@ -21,16 +21,16 @@ class App extends Component {
 
   render() {
     return (
-        <div class="container">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">
+        <div className="container">
+          <div className="panel panel-default">
+            <div className="panel-heading">
+              <h3 className="panel-title">
                 CONTACTS LIST
               </h3>
             </div>
-            <div class="panel-body">
-              <h4><Link to="/create"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Contact</Link></h4>
-              <table class="table table-stripe">
+            <div className="panel-body">
+              <h4><Link to="/create"><span className="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Contact</Link></h4>
+              <table className="table table-stripe">
                 <thead>
                 <tr>
                   <th>Name</th>
@@ -39,9 +39,10 @@ class App extends Component {
                 </thead>
                 <tbody>
                 {this.state.contacts.map(c =>
-                    <tr>
+                    <tr key={c.id}>
                       <td><Link to={`/show/${c.id}`}>{c.name}</Link></td>
                       <td>{c.address}</td>
+                      <td>{c.email}</td>
                     </tr>
                 )}
                 </tbody>

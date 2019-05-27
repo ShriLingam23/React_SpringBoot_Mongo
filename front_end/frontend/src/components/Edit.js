@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios/index';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 class Edit extends Component {
@@ -30,7 +30,7 @@ class Edit extends Component {
 
         const { name, address, city, postalCode, phone } = this.state.contact;
 
-        axios.put('/contacts/'+this.props.match.params.id, { name, address, city, postalCode, phone })
+        axios.put('http://localhost:8080/contacts/'+this.props.match.params.id, { name, address, city, postalCode, phone })
             .then((result) => {
                 this.props.history.push("/show/"+this.props.match.params.id)
             });
