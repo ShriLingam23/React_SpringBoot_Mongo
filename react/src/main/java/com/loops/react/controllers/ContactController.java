@@ -4,6 +4,7 @@ import com.loops.react.models.Contact;
 import com.loops.react.repositories.ContactRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,11 +19,13 @@ public class ContactController {
 	@Autowired
     ContactRepository contactRepository;
 	
+	  	@CrossOrigin(origins = "http://localhost:3000")
 	 	@RequestMapping(method=RequestMethod.GET, value="/contacts")
 	    public Iterable<Contact> contact() {
 	        return contactRepository.findAll();
 	    }
 
+	  	@CrossOrigin(origins = "http://localhost:3000")
 	    @RequestMapping(method=RequestMethod.POST, value="/contacts")
 	    public Contact save(@RequestBody Contact contact) {
 	        contactRepository.save(contact);
@@ -30,11 +33,13 @@ public class ContactController {
 	        return contact;
 	    }
 
+	  	@CrossOrigin(origins = "http://localhost:3000")
 	    @RequestMapping(method=RequestMethod.GET, value="/contacts/{id}")
 	    public Optional<Contact> show(@PathVariable String id) {
 	        return contactRepository.findById(id);
 	    }
 
+	  	@CrossOrigin(origins = "http://localhost:3000")
 	    @RequestMapping(method=RequestMethod.PUT, value="/contacts/{id}")
 	    public Contact update(@PathVariable String id, @RequestBody Contact contact) {
 	        Optional<Contact> optcontact = contactRepository.findById(id);
@@ -53,6 +58,7 @@ public class ContactController {
 	        return c;
 	    }
 
+	  	@CrossOrigin(origins = "http://localhost:3000")
 	    @RequestMapping(method=RequestMethod.DELETE, value="/contacts/{id}")
 	    public String delete(@PathVariable String id) {
 	        Optional<Contact> optcontact = contactRepository.findById(id);
