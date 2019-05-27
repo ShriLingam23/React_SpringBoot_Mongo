@@ -1,0 +1,5 @@
+.metadata/*
+.recommenders/*
+RemoteSystemsTempFiles/*
+*/node_modules/*
+*/.idea/*
