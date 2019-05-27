@@ -2,6 +2,6 @@
 
 This is Web application build using,
 
-React as front-end technology
-Spring Boot as Bac-end technology
-MongoDB as database
+***React as front-end technology
+***Spring Boot as Back-end technology
+***MongoDB as database
